@@ -7,7 +7,8 @@ export const listFiles = () => {
   let currentDirectory = process.cwd();
     fs.readdir(currentDirectory, (err, files) => {
         if (err) {
-          return console.log('Operation failed');
+          console.log(`You are currently in  ${process.cwd()}`)
+          console.log(`Operation failed ${err.message}`)
         }
         files.forEach(file => {
            return console.log(file);
