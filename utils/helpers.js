@@ -9,6 +9,9 @@ export const COPY_COMMAND = 'cp';
 export const MOVE_COMMAND = 'mv';
 export const DELETE_COMMAND = 'rm';
 export const HASH_COMMAND = 'hash';
+export const COMPRESS_COMMAND = 'compress';
+export const DECOMPRESS_COMMAND = 'decompress';
+
 
 
 

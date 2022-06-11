@@ -1,18 +1,12 @@
 import process from "process";  
 import readline from "readline";
-import { cdDirectory } from './src/nwd/cdDirectory.js';
-import { listFiles } from './src/nwd/listFiles.js';
-import { upDirectory } from './src/nwd/upDirectory.js';
-import { readFile } from './src/files/readFile.js';
-import { createFile } from './src/files/createFile.js';
-import { renameFile } from './src/files/renameFile.js';
-import { copyFile } from './src/files/copyFile.js';
-import { moveFile } from './src/files/moveFile.js';
-import { deleteFile } from "./src/files/deleteFile.js";
+import { cdDirectory, listFiles, upDirectory} from './src/nwd/index.js'
+import { readFile, createFile, renameFile, copyFile, moveFile, deleteFile } from "./src/files/index.js";
 import { hashFile } from "./src/hash/hashFile.js";
+import { compressFile, decompressFile} from './src/operations/index.js'
 import {exitFileManager, finishFileManager} from './utils/finishFM.js';
 import {UP_COMMAND, LS_COMMAND, CD_COMMAND, EXIT_COMMAND, READ_COMMAND, CREATE_COMMAND,
-RENAME_COMMAND, COPY_COMMAND, MOVE_COMMAND, DELETE_COMMAND, HASH_COMMAND} from './utils/helpers.js';
+RENAME_COMMAND, COPY_COMMAND, MOVE_COMMAND, DELETE_COMMAND, HASH_COMMAND, COMPRESS_COMMAND, DECOMPRESS_COMMAND} from './utils/helpers.js';
 
 export const startFileManager = () => {
   const arg = process.argv;
@@ -65,6 +59,12 @@ export const startFileManager = () => {
       case input.startsWith(HASH_COMMAND):
         hashFile(input)
         break;      
+      case input.startsWith(COMPRESS_COMMAND):
+        compressFile(input)
+        break;   
+      case input.startsWith(DECOMPRESS_COMMAND):
+        decompressFile(input)
+        break; 
       case input === EXIT_COMMAND:
         exitFileManager(username)
       default:
