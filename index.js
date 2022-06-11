@@ -9,9 +9,10 @@ import { renameFile } from './src/files/renameFile.js';
 import { copyFile } from './src/files/copyFile.js';
 import { moveFile } from './src/files/moveFile.js';
 import { deleteFile } from "./src/files/deleteFile.js";
+import { hashFile } from "./src/hash/hashFile.js";
 import {exitFileManager, finishFileManager} from './utils/finishFM.js';
 import {UP_COMMAND, LS_COMMAND, CD_COMMAND, EXIT_COMMAND, READ_COMMAND, CREATE_COMMAND,
-RENAME_COMMAND, COPY_COMMAND, MOVE_COMMAND, DELETE_COMMAND} from './utils/helpers.js';
+RENAME_COMMAND, COPY_COMMAND, MOVE_COMMAND, DELETE_COMMAND, HASH_COMMAND} from './utils/helpers.js';
 
 export const startFileManager = () => {
   const arg = process.argv;
@@ -60,7 +61,10 @@ export const startFileManager = () => {
         break;  
       case input.startsWith(DELETE_COMMAND):
         deleteFile(input)
-        break;     
+        break; 
+      case input.startsWith(HASH_COMMAND):
+        hashFile(input)
+        break;      
       case input === EXIT_COMMAND:
         exitFileManager(username)
       default:
