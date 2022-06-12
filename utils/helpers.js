@@ -11,7 +11,11 @@ export const DELETE_COMMAND = 'rm';
 export const HASH_COMMAND = 'hash';
 export const COMPRESS_COMMAND = 'compress';
 export const DECOMPRESS_COMMAND = 'decompress';
-
+export const EOL_COMMAND = 'os --EOL';
+export const CPUS_COMMAND = 'os --cpus';
+export const HOMEDIR_COMMAND = 'os --homedir';
+export const USERNAME_COMMAND = 'os --username';
+export const ARCHITECTURE_COMMAND = 'os --architecture'; 
 
 
 
